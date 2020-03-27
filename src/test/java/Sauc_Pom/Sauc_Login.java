@@ -43,4 +43,10 @@ public class Sauc_Login {
 		this.pwd(p);
 		this.sub();
 	}
+	
+	 public String get_title()
+	 {
+		return dr.getTitle();
+	 }
+
 }

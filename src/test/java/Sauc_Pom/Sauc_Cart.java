@@ -2,6 +2,8 @@ package Sauc_Pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+
 import Sauc_BaseClasses.Sauc_Utilities;
 
 
@@ -9,6 +11,7 @@ public class Sauc_Cart {
 	
 	WebDriver dr;
 	Sauc_Utilities sw;
+	public String productname1;
 	//To select the product
 	By pro=By.xpath("//select[@class='product_sort_container']/option[1]");
 	//Click on add to cart button
@@ -27,10 +30,18 @@ public class Sauc_Cart {
 		dr.findElement(pro).click();
 	}
 	
-	public void add()
+	public void add() 
 	{
 		dr.findElement(ac).click();
+		
 	}
+	public void LinkCart() 
+	{
+		
+		dr.findElement(By.xpath("//a[@href=\"./cart.html\"]")).click();
+		productname1=  dr.findElement(By.xpath("//div[text()='Sauce Labs Backpack']")).getText();
+	}
+	
 	
 	public void but()
 	{
@@ -41,6 +52,7 @@ public class Sauc_Cart {
 	{
 		this.product();
 		this.add();
+		this.LinkCart();
 		this.but();
 	}
 }
